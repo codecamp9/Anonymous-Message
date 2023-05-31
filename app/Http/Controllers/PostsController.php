@@ -78,7 +78,7 @@ class PostsController extends Controller
             'created_at' => date('Y:m:d'),
         ]);
 
-        return redirect('/')->with('toast_success', 'Postingan berhasil di tambahkan!');
+        return redirect('/')->with('success', 'Postingan berhasil di tambahkan!');
     }
 
     /**
@@ -149,6 +149,6 @@ class PostsController extends Controller
     {
         Post::where('id', $id)->delete();
 
-        return redirect('/')->with('toast_success', 'Postingan berhasil di hapus!');
+        return redirect('/')->with('success', 'Postingan berhasil di hapus!');
     }
 }
