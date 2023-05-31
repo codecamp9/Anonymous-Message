@@ -3,6 +3,12 @@
     @section('title')
         {{$post->from}}
     @endsection
+
+    @section('logo')
+    <div class="navbar-start">
+        <a href=" {{url('/')}} " class="btn btn-ghost normal-case text-xl">Like Like Shy</a>
+    </div>
+    @endsection
     
     @section('content')
     <div class="bg-custom-bg h-screen">

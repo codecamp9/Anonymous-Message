@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get('login', [LoginController::class, 'login']);
+Route::post('login', [LoginController::class, 'authenticate']);
 
 Route::get('tambah', [PostsController::class, 'create']);
 Route::post('/', [PostsController::class, 'store']);

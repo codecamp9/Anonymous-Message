@@ -1,9 +1,14 @@
     @extends('layouts.app')
 
     @section('title', 'Edit')
+
+    @section('logo')
+    <div class="navbar-start">
+        <a href=" {{url('/')}} " class="btn btn-ghost normal-case text-xl">Like Like Shy</a>
+    </div>
+    @endsection
     
     @section('content')
-
     <ul>
         @foreach ($errors->all() as $error)
             <ul> {{$error}} </ul>
