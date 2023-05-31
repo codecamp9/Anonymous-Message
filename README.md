@@ -27,8 +27,44 @@ Sebelum memulai menginstal dan menjalankan proyek ini, pastikan sistem Anda meme
 
 ## Instalasi
 
-Salin repositori ini ke komputer lokal Anda dengan menggunakan perintah berikut:
-$ git clone https://github.com/nama_pengguna/nama_repositori.git
+1. Salin repositori ini ke komputer lokal Anda dengan menggunakan perintah berikut:
+```bash
+git clone https://github.com/nama_pengguna/nama_repositori.git
+```
+2. Masuk ke direktori proyek:
+```bash
+cd nama_repositori
+```
+3. Instal semua dependensi PHP melalui Composer:
+```bash
+composer install
+```
+4. Salin file .env.example menjadi .env:
+```bash
+cp .env.example .env
+```
+5. Generate kunci aplikasi Laravel:
+```bash
+php artisan key:generate
+```
+6. Konfigurasikan koneksi database di file .env sesuai dengan pengaturan lokal Anda:
+```text
+DB_CONNECTION=nama_connection
+DB_HOST=nama_host
+DB_PORT=nama_port
+DB_DATABASE=nama_database
+DB_USERNAME=nama_pengguna
+DB_PASSWORD=kata_sandi
+```
+7. Jalankan migrasi untuk membuat tabel yang diperlukan:
+```bash
+php artisan migrate
+```
+8. Jalankan server pengembangan Laravel:
+```bash
+php artisan serve
+npm run dev
+```
 
 ## License
 
