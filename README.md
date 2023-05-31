@@ -51,7 +51,7 @@ php artisan key:generate
 ```text
 DB_CONNECTION=nama_connection
 DB_HOST=nama_host
-DB_PORT=nama_port
+DB_PORT=port
 DB_DATABASE=nama_database
 DB_USERNAME=nama_pengguna
 DB_PASSWORD=kata_sandi
