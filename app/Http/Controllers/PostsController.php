@@ -77,6 +77,8 @@ class PostsController extends Controller
             'message' => $message,
             'created_at' => date('Y:m:d'),
         ]);
+
+        return redirect('/')->with('toast_success', 'Postingan berhasil di tambahkan!');
     }
 
     /**
