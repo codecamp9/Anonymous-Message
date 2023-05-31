@@ -19,11 +19,11 @@
                         <div>
                             <small> <i>Username</i></small>
                             <input type="text"  class="input input-bordered w-full max-w-xs"
-                                name="from" placeholder="Salsa"/>
+                                name="from"/>
                         </div>
                         <div>
                             <small> <i>Password</i></small>
-                            <input type="password" placeholder="Encit" class="input input-bordered w-full max-w-xs"
+                            <input type="password" class="input input-bordered w-full max-w-xs"
                                 name="to" />
                         </div>
                         <div class="card-actions justify-end">
