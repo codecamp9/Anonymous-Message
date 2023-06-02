@@ -75,6 +75,8 @@ php artisan migrate
 9. Jalankan server pengembangan Laravel:
 ```bash
 php artisan serve
+```
+```bash
 npm run dev
 ```
 
