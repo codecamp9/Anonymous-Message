@@ -21,7 +21,7 @@ Anonymous Message adalah sebuah website yang memungkinkan pengguna untuk mengiri
 
 Sebelum memulai menginstal dan menjalankan proyek ini, pastikan sistem Anda memenuhi prasyarat berikut:
 
-1. PHP versi 7.4 atau lebih baru
+1. PHP versi 8.1 atau lebih baru
 2. Composer [https://getcomposer.org/]
 3. Node.js [https://nodejs.org/]
 
