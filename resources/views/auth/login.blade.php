@@ -33,7 +33,7 @@
                                 <small class="text-red-400"> {{$errors->first('password')}} </small>
                             @endif
                         </div>
-                        <small class="pt-1">Belum puanya akun? <a href=" {{url('register')}} " class="text-blue-400">Register</a></small>
+                        <small class="pt-1">Belum puanya akun? <a href=" {{url('register')}} " class="text-blue-400">Sing Up</a></small>
                         <div class="card-actions justify-end pt-5">
                             <button type="submit" class="btn btn-accent w-full text-xl">Login</button>
                         </div>

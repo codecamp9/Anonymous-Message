@@ -1,6 +1,6 @@
     @extends('layouts.app')
 
-    @section('title', 'Register')
+    @section('title', 'Sign up')
 
     @section('logo')
     <div class="navbar-start">
@@ -15,7 +15,7 @@
                 <form action=" {{url('register')}} " method="post">
                     @csrf
                     <div class="card-body fel">
-                        <h2 class="text-center font-bold text-3xl text-custum-text pb-5">REGISTER</h2>
+                        <h2 class="text-center font-bold text-3xl text-custum-text pb-5">SIGN UP</h2>
                         <div>
                             <small> <i>Username</i></small>
                             <input type="text" class="input input-bordered w-full max-w-xs" name="name"/>
@@ -36,7 +36,7 @@
                         </div>
                         <small class="pt-1">Sudah punya akun? <a href=" {{url('login')}} " class="text-blue-400">Login</a></small>
                         <div class="card-actions justify-end pt-5">
-                            <button type="submit" class="btn btn-accent w-full text-xl">Register</button>
+                            <button type="submit" class="btn btn-accent w-full text-xl">sign up</button>
                         </div>
                     </div>
                 </form>
