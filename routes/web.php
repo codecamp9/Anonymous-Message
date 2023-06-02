@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('login', [LoginController::class, 'login']);
 Route::post('login', [LoginController::class, 'authenticate']);
+Route::get('register', [LoginController::class, 'register_form']);
+Route::post('register', [LoginController::class, 'register']);
+Route::get('logout', [LoginController::class, 'logout']);
 
 Route::get('tambah', [PostsController::class, 'create']);
 Route::post('/', [PostsController::class, 'store']);

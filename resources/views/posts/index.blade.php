@@ -26,12 +26,10 @@
             <label tabindex="0" class="btn btn-ghost btn-circle">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M4 6h16M4 12h16M4 18h7" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
                 </svg>
             </label>
-            <ul tabindex="0"
-                class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+            <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                 <li><a href=" {{url('tambah')}} ">Tambah Postinagn</a></li>
             </ul>
         </div>
@@ -54,7 +52,8 @@
                     <div class="chat-bubble text-[12px] md:text-lg">Mari kirimkan pesan rahasia kamu...</div>
                 </div>
                 <div class="chat chat-end">
-                    <div class="chat-bubble text-[12px] md:text-lg">Jadilah orang yang pertama yang mengirimkan pesan!!!</div>
+                    <div class="chat-bubble text-[12px] md:text-lg">Jadilah orang yang pertama yang mengirimkan pesan!!!
+                    </div>
                 </div>
             </div>
         </div>
@@ -64,13 +63,13 @@
             @foreach ($posts as $post)
             <div class="card w-auto bg-base-100 shadow-xl">
                 <div class="card-body">
-                    <h2
-                        class="card-title font-bold text-[14px] fsm:text-[16px] ism:text-[18px]">
+                    <h2 class="card-title font-bold text-[14px] fsm:text-[16px] ism:text-[18px]">
                         {{$post->from}}</h2>
-                        <h2 class="text-custum-text font-bold text-[14px] fsm:text-[16px] ism:text-[18px]"> <small class="text-black"><i>to</i></small> {{$post->to}}</h2>
-                    <small class="text-[10px] bsm:text-[14px]"> {{date('d M Y', strtotime($post->created_at	))}} </small>
-                    <p
-                        class="text-[14px] fsm:text-[16px] ism:text-[18px]">
+                    <h2 class="text-custum-text font-bold text-[14px] fsm:text-[16px] ism:text-[18px]"> <small
+                            class="text-black"><i>to</i></small> {{$post->to}}</h2>
+                    <small class="text-[10px] bsm:text-[14px]"> {{date('d M Y', strtotime($post->created_at	))}}
+                    </small>
+                    <p class="text-[14px] fsm:text-[16px] ism:text-[18px]">
                         {{$post->message}} </p>
                     <div class="card-actions justify-end">
                         <a href=" {{url("posts/$post->id")}} ">
@@ -83,7 +82,8 @@
                         <form action=" {{url("posts/$post->id")}} " method="post">
                             @csrf
                             @method('delete')
-                            <a href="{{url("posts/$post->id")}}" class="btn btn-outline btn-error btn-xs" data-confirm-delete="true">Delete</a>
+                            <a href="{{url("posts/$post->id")}}" class="btn btn-outline btn-error btn-xs"
+                                data-confirm-delete="true">Delete</a>
                         </form>
                     </div>
                 </div>
@@ -95,5 +95,6 @@
             {{ $posts->links() }}
         </div>
     </div>
+    @include('sweetalert::alert')
     @include('sweetalert::alert')
     @endsection
