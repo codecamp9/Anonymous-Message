@@ -64,6 +64,6 @@ class LoginController extends Controller
             'password' => Hash::make($request->input('password')),
         ]);
 
-        return redirect('login')->with('success', 'Register berhasil!');
+        return redirect('login')->with('success', 'Sign Up berhasil!');
     }
 }

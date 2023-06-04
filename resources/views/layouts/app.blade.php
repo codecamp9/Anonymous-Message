@@ -26,11 +26,11 @@
                 <ul tabindex="0"
                     class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                     @if (Auth::check())
-                        <li><a href=" {{url('/')}} " >Profil</a></li>
-                        <li><a href=" {{url('logout')}} " >Logout</a></li>
-                    @else                       
-                        <li><a href=" {{url('login')}} " >Login</a></li>
-                        <li><a href=" {{url('register')}} ">Sign Up</a></li>
+                    <li><a href=" {{url("profil", Auth::user()->id)}} ">Profile</a></li>
+                    <li><a href=" {{url('logout')}} ">Logout</a></li>
+                    @else
+                    <li><a href=" {{url('login')}} ">Sign In</a></li>
+                    <li><a href=" {{url('register')}} ">Sign Up</a></li>
                     @endif
                 </ul>
             </div>
@@ -41,7 +41,7 @@
 
     @yield('content')
 
-    @include('layouts.app.footer')
+    @include('layouts.component.footer')
 
 </body>
 

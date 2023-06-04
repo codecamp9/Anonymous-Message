@@ -20,16 +20,25 @@
                             <small> <i>Dari</i></small>
                             <input type="text"  class="input input-bordered w-full max-w-xs"
                                 name="from" placeholder="Salsa"/>
+                            @if ($errors->has('from'))
+                                <small class="text-red-400"> {{$errors->first('from')}} </small>
+                            @endif
                         </div>
                         <div>
                             <small> <i>Untuk</i></small>
                             <input type="text" placeholder="Encit" class="input input-bordered w-full max-w-xs"
                                 name="to" />
+                            @if ($errors->has('to'))
+                                <small class="text-red-400"> {{$errors->first('to')}} </small>
+                            @endif
                         </div>
                         <div>
                             <small> <i>Pesan</i></small>
                             <textarea class="textarea textarea-bordered w-full"
                                 placeholder="Encit lucu banget jadi like dehh" name="message"></textarea>
+                            @if ($errors->has('message'))
+                                <small class="text-red-400"> {{$errors->first('message')}} </small>
+                            @endif
                         </div>
                         <div class="card-actions justify-end">
                             <button type="submit" class="btn btn-accent">Tambah</button>
@@ -39,6 +48,5 @@
             </div>
         </div>
     </div>
-    @include('sweetalert::alert')
     @endsection
    

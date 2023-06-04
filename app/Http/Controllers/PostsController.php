@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Contracts\Session\Session;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session as FacadesSession;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -23,15 +23,9 @@ class PostsController extends Controller
             $post->message = Str::limit($post->message, 50);
         }
 
-        $title = "Pesan dari"; 
-        $text = "Yakin pesannya ingin dihapus?"; 
-
-
-        if ($posts->count() > 0) {
-            $title = "Pesan dari " . $posts->first()->from;
+            $title = "Hapus Pesan";
             $text = "Yakin pesannya ingin di hapus?";
             confirmDelete($title, $text);
-        }
         
         $posts_view = ([
             'posts' => $posts,
@@ -53,27 +47,33 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+
         $from = $request->input('from');
         $to = $request->input('to');
         $message = $request->input('message');
 
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'from' => 'required',
             'to' => 'required',
             'message' => 'required',
         ], [
-            'from.required' => 'From wajib di isi',
-            'to.required' => 'to wajib di isi',
-            'message.required' => 'Pesan wajib di isi',
+            'from.required' => 'Dari siapa?',
+            'to.required' => 'Untuk siapa?',
+            'message.required' => 'Pesannya mau apa?',
         ]);
 
-        if ($validator->fails()) {
-        return back()->with('error', $validator->messages()->all()[0])->withInput();
-    }
+        $user = Auth::user();
+
+        if ($user) {
+            $userId = $user->id;
+        } else {
+            $userId = null;
+        }
 
         Post::insert([
             'from' => $from,
             'to' => $to,
+            'user_id' => $userId,
             'message' => $message,
             'created_at' => date('Y:m:d'),
         ]);
@@ -118,19 +118,17 @@ class PostsController extends Controller
         $to = $request->input('to');
         $message = $request->input('message');
 
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'from' => 'required',
             'to' => 'required',
             'message' => 'required',
         ], [
-            'from.required' => 'From wajib di isi',
-            'to.required' => 'to wajib di isi',
-            'message.required' => 'Pesan wajib di isi',
+            'from.required' => 'Dari siapa?',
+            'to.required' => 'Untuk siapa?',
+            'message.required' => 'Pesannya mau apa?',
         ]);
 
-        if ($validator->fails()) {
-        return back()->with('error', $validator->messages()->all()[0])->withInput();
-    }
+        $user = Auth::User();
 
         Post::where('id', $id)->update([
             'from' => $from,
@@ -138,7 +136,7 @@ class PostsController extends Controller
             'message' => $message,
         ]);
 
-        return redirect("posts/$id")->with('toast_success', 'Postingan berhasil di edit!');
+        return redirect("profil/$user->id")->with('success', 'Postingan berhasil di edit!');
 
     }
 
