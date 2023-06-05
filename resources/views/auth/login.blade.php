@@ -4,7 +4,7 @@
 
     @section('logo')
     <div class="navbar-start">
-        <a href=" {{url('/')}} " class="btn btn-ghost normal-case text-xl">Like Like Shy</a>
+        <a href=" {{url('/')}} " class="btn btn-ghost normal-case text-xl">RPL Whispers</a>
     </div>
     @endsection
 
@@ -17,23 +17,26 @@
                     <div class="card-body fel">
                         <h2 class="text-center font-bold text-3xl text-custum-text pb-5">LOGIN</h2>
                         @if (session()->has('error_message'))
-                            <small class="text-red-400"> {{session()->get('error_message')}} </small>
+                        <small class="text-red-400"> {{session()->get('error_message')}} </small>
                         @endif
                         <div>
                             <small> <i>Username</i></small>
-                            <input type="text" class="input input-bordered w-full max-w-xs" name="name" />
+                            <input type="text" class="input input-bordered w-full max-w-xs" name="name"
+                                value="{{old('name')}}" />
                             @if ($errors->has('name'))
-                                <small class="text-red-400"> {{$errors->first('name')}} </small>
+                            <small class="text-red-400"> {{$errors->first('name')}} </small>
                             @endif
                         </div>
                         <div>
                             <small> <i>Password</i></small>
-                            <input type="password" class="input input-bordered w-full max-w-xs" name="password" />
+                            <input type="password" class="input input-bordered w-full max-w-xs" name="password"
+                                value="{{old('password')}}" />
                             @if ($errors->has('password'))
-                                <small class="text-red-400"> {{$errors->first('password')}} </small>
+                            <small class="text-red-400"> {{$errors->first('password')}} </small>
                             @endif
                         </div>
-                        <small class="pt-1">Belum puanya akun? <a href=" {{url('register')}} " class="text-blue-400">Sing Up</a></small>
+                        <small class="pt-1">Belum puanya akun? <a href=" {{url('register')}} "
+                                class="text-blue-400">Sing Up</a></small>
                         <div class="card-actions justify-end pt-5">
                             <button type="submit" class="btn btn-accent w-full text-xl">Login</button>
                         </div>

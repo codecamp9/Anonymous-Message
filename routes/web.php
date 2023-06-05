@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\UserController;
@@ -32,3 +33,5 @@ Route::get('posts/{id}', [PostsController::class, 'show']);
 Route::get('posts/{id}/edit', [PostsController::class, 'edit']);
 Route::patch('posts/{id}', [PostsController::class, 'update']);
 Route::delete('posts/{id}', [PostsController::class, 'destroy']);
+
+Route::post('comment/{id}', [CommentController::class, 'store']);

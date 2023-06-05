@@ -4,7 +4,7 @@
 
     @section('logo')
     <div class="navbar-start">
-        <a href=" {{url('/')}} " class="btn btn-ghost normal-case text-xl">Like Like Shy</a>
+        <a href=" {{url('/')}} " class="btn btn-ghost normal-case text-xl">RPL Whispers</a>
     </div>
     @endsection
 
@@ -18,26 +18,27 @@
                         <h2 class="text-center font-bold text-xl text-custum-text">Tambah Postingan</h2>
                         <div>
                             <small> <i>Dari</i></small>
-                            <input type="text"  class="input input-bordered w-full max-w-xs"
-                                name="from" placeholder="Salsa"/>
+                            <input type="text" class="input input-bordered w-full max-w-xs" name="from"
+                                placeholder="Salsa" value="{{old('from')}}" />
                             @if ($errors->has('from'))
-                                <small class="text-red-400"> {{$errors->first('from')}} </small>
+                            <small class="text-red-400"> {{$errors->first('from')}} </small>
                             @endif
                         </div>
                         <div>
                             <small> <i>Untuk</i></small>
                             <input type="text" placeholder="Encit" class="input input-bordered w-full max-w-xs"
-                                name="to" />
+                                name="to" value="{{old('to')}}" />
                             @if ($errors->has('to'))
-                                <small class="text-red-400"> {{$errors->first('to')}} </small>
+                            <small class="text-red-400"> {{$errors->first('to')}} </small>
                             @endif
                         </div>
                         <div>
                             <small> <i>Pesan</i></small>
                             <textarea class="textarea textarea-bordered w-full"
-                                placeholder="Encit lucu banget jadi like dehh" name="message"></textarea>
+                                placeholder="Encit lucu banget jadi like dehh"
+                                name="message">{{old('message')}}</textarea>
                             @if ($errors->has('message'))
-                                <small class="text-red-400"> {{$errors->first('message')}} </small>
+                            <small class="text-red-400"> {{$errors->first('message')}} </small>
                             @endif
                         </div>
                         <div class="card-actions justify-end">
@@ -49,4 +50,3 @@
         </div>
     </div>
     @endsection
-   

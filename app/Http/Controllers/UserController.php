@@ -13,8 +13,14 @@ class UserController extends Controller
     
     public function show(string $id)
     {
+
+        
         $user = User::where('id', $id)->first();
-        $posts = Post::where('user_id', $id)->orderBy('id', 'desc')->get();
+        
+        $user_id = User::find($id);
+
+        if($user_id){
+            $posts = $user->posts()->orderBy('id', 'desc')->get();
 
         foreach ($posts as $post) {
             $post->message = Str::limit($post->message, 50);
@@ -30,6 +36,8 @@ class UserController extends Controller
         confirmDelete($title, $text);
 
         return view('users.show', $view_user);
+        }
+        
     }
 
     public function destroy(string $id)
